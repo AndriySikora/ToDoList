@@ -30,9 +30,23 @@ window.onload = function() {
                 docFrag.appendChild(li);
             }
             ul.appendChild(docFrag);
+        },
+        createButton: function() {
+            var button = document.createElement('button');
+            button.innerHTML = 'Add item';
+            button.setAttribute('class', 'btn btn-default');
+            document.body.appendChild(button);
+            button.onclick = function() {
+            var li = document.createElement('li');
+            li.setAttribute('class', 'list-group-item');
+            ul = document.getElementsByClassName('list-group')[0];
+            li.innerHTML = 'Buy a book';
+            ul.appendChild(li);
+            };
         }
     }
     app.render(this);
+    app.createButton();
 };
 
 
