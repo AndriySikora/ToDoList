@@ -31,22 +31,46 @@ window.onload = function() {
             }
             ul.appendChild(docFrag);
         },
-        createButton: function() {
+        addItemButton: function() {
             var button = document.createElement('button');
             button.innerHTML = 'Add item';
             button.setAttribute('class', 'btn btn-default');
+            button.setAttribute('type', 'button');
             document.body.appendChild(button);
             button.onclick = function() {
-            var li = document.createElement('li');
-            li.setAttribute('class', 'list-group-item');
-            ul = document.getElementsByClassName('list-group')[0];
-            li.innerHTML = 'Buy a book';
-            ul.appendChild(li);
+                var inputField = document.getElementsByClassName('form-control')[0];
+                var valueInput = inputField.value;
+                var li = document.createElement('li');
+                li.setAttribute('class', 'list-group-item');
+                ul = document.getElementsByClassName('list-group')[0];
+                li.innerHTML = valueInput;
+                ul.appendChild(li);
             };
+        },
+        createInput: function() {
+            var inputField = document.createElement('INPUT');
+            inputField.setAttribute('type', 'text');
+            inputField.setAttribute('class', 'form-control');
+            inputField.setAttribute('placeholder', 'add task');
+            document.body.appendChild(inputField);
+        },
+        removeItemButton: function() {
+            var button = document.createElement('button');
+            button.innerHTML = 'Delete';
+            button.setAttribute('class', 'btn btn-default');
+            button.setAttribute('type', 'button');
+            document.body.appendChild(button);  
+            button.onclick = function() {
+               ul = document.getElementsByClassName('list-group')[0];
+               li = document.getElementsByClassName('list-group-item')[0];
+               ul.removeChild(li); 
+            } 
         }
     }
     app.render(this);
-    app.createButton();
+    app.addItemButton();
+    app.createInput();
+    app.removeItemButton();
 };
 
 
