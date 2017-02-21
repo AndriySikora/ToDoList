@@ -62,7 +62,8 @@ window.onload = function() {
             document.body.appendChild(button);  
             button.onclick = function() {
                ul = document.getElementsByClassName('list-group')[0];
-               li = document.getElementsByClassName('list-group-item')[0];
+               li = document.getElementsByTagName('li'); 
+               li = li[li.length -1];
                ul.removeChild(li); 
             } 
         }
